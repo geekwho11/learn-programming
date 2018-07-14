@@ -1,0 +1,5 @@
+.git/
+.gitignore
+data/
+.php_cs.cache
+.DS_Store
