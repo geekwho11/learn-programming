@@ -6,6 +6,10 @@
         },
         {
             "packagist": false
+        },
+        {
+            "url": "git@github.com:geekwho11/tests.git",
+            "type": "git"
         }
     ],
     "require": {
