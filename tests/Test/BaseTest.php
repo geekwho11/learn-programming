@@ -33,4 +33,36 @@ class BaseTest extends \UnitTestCase
             );
         }
     }
+
+    public function testLRU()
+    {
+        $lru = \Algorithm\LRU\Base::instance();
+        $this->assertEquals(
+            true,
+            method_exists($lru , 'get'),
+            "lru can not find get method."
+        );
+        $this->assertEquals(
+            true,
+            method_exists($lru , 'set'),
+            "lru can not find set method."
+        );
+
+        $this->assertEquals(
+            true,
+            $lru->get('hit'),
+            "lru get hit failed."
+        );
+        $this->assertEquals(
+            -1,
+            $lru->get('no hit'),
+            "lru get no hit failed."
+        );
+
+        $this->assertEquals(
+            -1,
+            $lru->set('k','anything'),
+            "lru set key failed."
+        );
+    }
 }
