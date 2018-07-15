@@ -23,6 +23,8 @@ class BaseTest extends \UnitTestCase
             '\Base',
             '\Algorithm\Base',
             '\Algorithm\LRU\Base',
+            '\DataStructrue\Base',
+            '\DataStructrue\DoublyLinkedList\Base',
             '\Helper\Logger',
         ];
         foreach ($tests as $test) {
