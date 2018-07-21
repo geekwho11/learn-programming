@@ -4,7 +4,7 @@
  * @Author: GeekWho
  * @Date:   2018-07-21 12:39:20
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-07-21 13:30:28
+ * @Last Modified time: 2018-07-21 14:08:51
  */
 namespace Algorithm\Sort;
 
@@ -18,8 +18,8 @@ class BubbleSort extends \Algorithm\Sort\Base
         $end  = microtime(true);
         $time   = $end - $begin;
         echo "num $num sort cost time is $time s" . PHP_EOL;
-        //self::echoData($random);
-        //self::echoData($data);
+        //self::echoData($random) . PHP_EOL;
+        //self::echoData($data) . PHP_EOL;
     }
 
     public static function sort(array $data){
