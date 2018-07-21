@@ -6,4 +6,5 @@
 root=$(cd "$(dirname "$0")"; cd ..;pwd)
 php=$(which "php")
 
-$php $root/run $* >> $root/data/cli.log 2>&1
+$php $root/run $*
+#>> $root/data/cli.log 2>&1

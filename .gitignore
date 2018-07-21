@@ -1,3 +1,4 @@
 vendor
 data
 .php_cs.cache
+.phalcon

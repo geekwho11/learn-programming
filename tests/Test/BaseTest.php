@@ -23,9 +23,15 @@ class BaseTest extends \UnitTestCase
             '\Base',
             '\Algorithm\Base',
             '\Algorithm\LRU\Base',
+            '\Algorithm\Sort\Base',
+            '\Algorithm\Sort\BubbleSort',
+
             '\DataStructrue\Base',
             '\DataStructrue\DoublyLinkedList\Base',
+
             '\Helper\Logger',
+            '\MainTask',
+            '\SortTask',
         ];
         foreach ($tests as $test) {
             $this->assertEquals(

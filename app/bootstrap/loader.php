@@ -9,6 +9,7 @@ define('APP_PATH', BASE_PATH . '/app');
 if (date_default_timezone_get() != 'Asia/Shanghai') {
     date_default_timezone_set('Asia/Shanghai');
 }
+set_time_limit(0);
 
 /**
  * The FactoryDefault Dependency Injector automatically registers the services that
