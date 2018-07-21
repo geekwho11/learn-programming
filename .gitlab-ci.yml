@@ -1,0 +1,39 @@
+# see https://gitlab.com/help/ci/yaml/README.md#jobs
+# Select image
+image: geekwho/code:php
+stages:
+  - phplint
+  - phpfixer
+  - build
+  - test
+  - deploy
+
+# php lint
+phplint:
+  stage: phplint
+  script:
+  - bash bin/phplint.sh
+  only:
+  - master
+  - prelease
+  - dev
+
+# php code style
+phpfixer:
+  stage: phpfixer
+  script:
+  - bash bin/phpfixer.sh
+  only:
+  - master
+  - prelease
+  - dev
+
+# unit test
+test:
+  stage: test
+  script:
+  - bash bin/test.sh
+  only:
+  - master
+  - prelease
+  - dev

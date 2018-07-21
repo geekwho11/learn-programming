@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - 7.2
+
+before_script:
+  - docker pull geekwho/code_php
+
+script:
+  - docker run geekwho/code_php /bin/bash -c "cd ~;git clone git@github.com:geekwho11/learn.php.xbcme.git ;cd learn.php.xbcme;composer install -n --dev --prefer-source;bash bin/phplint.sh;bash bin/phpfixer.sh;bash bin/test.sh;"
+
+matrix:
+  fast_finish: true

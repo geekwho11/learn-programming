@@ -1,6 +1,9 @@
 ## 学习编程的美
 学习常用算法，数据结构。
 
+### 基础环境搭建
+参考[GitHub地址](git@github.com:geekwho11/docker.xbc.me.git)
+
 ### 常用算法
 
 #### 算法实现
