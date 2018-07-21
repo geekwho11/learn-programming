@@ -2,9 +2,8 @@
 学习常用算法，数据结构。
 
 ### 常用算法
-1. [LRU算法]()
 
-#### 算法时间分析
+#### 算法实现
 ```
 #冒泡排序
 bash bin/cli.sh sort bs
@@ -17,6 +16,9 @@ bash bin/cli.sh sort ss
 
 #归并排序
 bash bin/cli.sh sort ms
+
+#堆排序
+bash bin/cli.sh sort hs
 ```
 
 #### 单元测试
@@ -27,4 +29,4 @@ bash bin/test.sh
 ### 常见数据结构
 
 ### 参考链接
-1. [神秘极客](http://xbc.me)
+1. [神秘极客](https://xbc.me)

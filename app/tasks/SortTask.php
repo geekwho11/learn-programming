@@ -4,7 +4,7 @@
  * @Author: GeekWho
  * @Date:   2018-07-21 12:41:31
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-07-21 19:51:42
+ * @Last Modified time: 2018-07-21 20:03:08
  */
 class SortTask extends \Phalcon\Cli\Task
 {
@@ -68,5 +68,18 @@ class SortTask extends \Phalcon\Cli\Task
         \Algorithm\Sort\MergeSort::run(10000);
         //10,0000
         \Algorithm\Sort\MergeSort::run(100000);
+    }
+
+    /**
+     * 堆排序
+     */
+    public function hsAction()
+    {
+        //1000
+        \Algorithm\Sort\HeapSort::run(1000);
+        //10000
+        \Algorithm\Sort\HeapSort::run(10000);
+        //10,0000
+        \Algorithm\Sort\HeapSort::run(100000);
     }
 }
