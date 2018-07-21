@@ -4,7 +4,7 @@
  * @Author: GeekWho
  * @Date:   2018-07-21 12:41:31
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-07-21 14:02:28
+ * @Last Modified time: 2018-07-21 16:12:28
  */
 class SortTask extends \Phalcon\Cli\Task
 {
@@ -42,5 +42,18 @@ class SortTask extends \Phalcon\Cli\Task
         \Algorithm\Sort\QuickSort::run(10000);
         //10,0000
         \Algorithm\Sort\QuickSort::run(100000);
+    }
+
+    /**
+     * 选择排序
+     */
+    public function ssAction()
+    {
+        //1000
+        \Algorithm\Sort\SelectSort::run(1000);
+        //10000
+        \Algorithm\Sort\SelectSort::run(10000);
+        //10,0000
+        \Algorithm\Sort\SelectSort::run(100000);
     }
 }

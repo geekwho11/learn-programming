@@ -1,4 +1,5 @@
 <?php
+extension_loaded('phalcon') or die('Phalcon framework extension is not installed');
 
 use Phalcon\Di\FactoryDefault\Cli as CliDi;
 use Phalcon\Cli\Console as ConsoleApp;

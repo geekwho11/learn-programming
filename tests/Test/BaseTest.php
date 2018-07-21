@@ -26,6 +26,7 @@ class BaseTest extends \UnitTestCase
             '\Algorithm\Sort\Base',
             '\Algorithm\Sort\BubbleSort',
             '\Algorithm\Sort\QuickSort',
+            '\Algorithm\Sort\SelectSort'
 
             '\DataStructrue\Base',
             '\DataStructrue\DoublyLinkedList\Base',
