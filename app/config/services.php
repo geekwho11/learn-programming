@@ -31,4 +31,3 @@ $di->setShared('db', function () {
 
     return $connection;
 });
-

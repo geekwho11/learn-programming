@@ -11,7 +11,6 @@
  */
 try {
     require_once dirname(__DIR__) . '/app/bootstrap/test.php';
-
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

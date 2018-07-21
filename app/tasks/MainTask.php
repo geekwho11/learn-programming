@@ -6,5 +6,4 @@ class MainTask extends \Phalcon\Cli\Task
     {
         \Ding::run();
     }
-
 }

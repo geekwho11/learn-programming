@@ -33,7 +33,7 @@ for dir in ${php_dirs[@]}; do
         if [[ "$file" == "" ]]; then
             echo "Can not found php file." && exit 0
         fi
-        ERRORS=$($bin fix --rules=-psr0,encoding,elseif,function_declaration,indentation_type,blank_line_after_namespace,method_argument_space $root/$file 2>&1 | grep ")")
+        ERRORS=$($bin fix --rules=-psr0,@PSR2,encoding,elseif,function_declaration,indentation_type,blank_line_after_namespace,method_argument_space $root/$file 2>&1 | grep ")")
         if [ "$ERRORS" != "" ]; then
             if [ "$ERRORS_BUFFER" != "" ]; then
                 ERRORS_BUFFER="$ERRORS_BUFFER\n$ERRORS"

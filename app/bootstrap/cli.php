@@ -12,7 +12,7 @@ $console = new \Phalcon\Cli\Console($di);
 $arguments = [];
 $argv = isset($_SERVER['argv'])?$_SERVER['argv']:false;
 
-if($argv === false){
+if ($argv === false) {
     echo "获取参数失败" . PHP_EOL;
     return;
 }
@@ -46,7 +46,6 @@ try {
     if (isset($config["printNewLine"]) && $config["printNewLine"]) {
         echo PHP_EOL;
     }
-
 } catch (Exception $e) {
     echo $e->getMessage() . PHP_EOL;
     echo $e->getTraceAsString() . PHP_EOL;
