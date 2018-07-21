@@ -25,17 +25,17 @@ class MergeSort extends \Algorithm\Sort\Base
         //self::echoData($data) . PHP_EOL;
     }
 
-    public static function sort($array1 , $array2)
+    public static function sort($array1, $array2)
     {
         $sort = array();
-        while($array1 && $array2){
-            if($array1[0] >= $array2[0]){
+        while ($array1 && $array2) {
+            if ($array1[0] >= $array2[0]) {
                 //弹出数组的第一个元素
                 $sort[] = array_shift($array2);
-            }else{
+            } else {
                 $sort[] = array_shift($array1);
             }
         }
-        return array_merge($sort , $array1 , $array2);
+        return array_merge($sort, $array1, $array2);
     }
 }

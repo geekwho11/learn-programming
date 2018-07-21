@@ -22,22 +22,25 @@ class QuickSort extends \Algorithm\Sort\Base
         //self::echoData($data) . PHP_EOL;
     }
 
-    public static function sort(array $data){
+    public static function sort(array $data)
+    {
         $count = count($data);
-        if($count <= 1) return $data;
+        if ($count <= 1) {
+            return $data;
+        }
         $k = $data[0];
         $left = array();
         $right = array();
-        for($i = 1 ;$i < $count; $i++){
-            if($k >= $data[$i]){
+        for ($i = 1 ;$i < $count; $i++) {
+            if ($k >= $data[$i]) {
                 $left[] = $data[$i];
-            }else{
+            } else {
                 $right[] = $data[$i];
             }
         }
         $left = self::sort($left);
         $right = self::sort($right);
-        $result = array_merge($left , array($k) , $right);
+        $result = array_merge($left, array($k), $right);
         return $result;
     }
 }

@@ -7,7 +7,7 @@
  */
 
 namespace DataStructrue\DoublyLinkedList;
+
 class Base extends \DataStructrue\Base
 {
-
 }

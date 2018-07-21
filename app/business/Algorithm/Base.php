@@ -10,5 +10,4 @@ namespace Algorithm;
 
 class Base extends \Base
 {
-
 }

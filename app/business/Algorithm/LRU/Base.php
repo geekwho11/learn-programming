@@ -16,11 +16,13 @@ class Base extends \Algorithm\Base
 {
     public function get($k)
     {
-        if($k == 'no hit') return -1;
+        if ($k == 'no hit') {
+            return -1;
+        }
         return true;
     }
 
-    public function set($k , $v)
+    public function set($k, $v)
     {
         return true;
     }
