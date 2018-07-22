@@ -37,7 +37,10 @@ class BaseTest extends \UnitTestCase
             '\Algorithm\String\Reverse',
 
             '\DataStructrue\Base',
-            '\DataStructrue\DoublyLinkedList\Base',
+            '\DataStructrue\LinkedList\Base',
+            '\DataStructrue\LinkedList\DoublyLinkedList',
+            '\DataStructrue\Queue\Base',
+            '\DataStructrue\Queue\DoubleQueue',
 
             '\Helper\Logger',
             '\MainTask',
@@ -85,6 +88,74 @@ class BaseTest extends \UnitTestCase
             -1,
             $lru->set('k','anything'),
             "lru set key failed."
+        );
+    }
+
+    /**
+     * 测试双向链表
+     */
+    public function testDoublyLinkedList()
+    {
+        $this->testClassLoad();
+        $list = \DataStructrue\LinkedList\DoublyLinkedList::instance();
+        $this->assertEquals(
+            true,
+            is_object($list),
+            "DoublyLinkedList instance falied."
+        );
+        $list->insert('one' , 'before');
+        $list->insert('two', 'before');
+        $list->insert('three', 'before');
+        $this->assertEquals(
+            3,
+            $list->getSize(),
+            "insert before falied."
+        );
+        $return = $list->fetch();
+        $this->assertEquals(
+            ['three','two', 'one'],
+            $return,
+            "fetch data error."
+        );
+        //var_dump($list);
+
+        $list->insert('four' , 'after');
+        $list->insert('five', 'after');
+        $list->insert('six', 'after');
+        $this->assertEquals(
+            6,
+            $list->getSize(),
+            "insert after falied."
+        );
+        $return = $list->fetch();
+        $this->assertEquals(
+            ['three','two', 'one', 'four', 'five', 'six'],
+            $return,
+            "fetch data error."
+        );
+        //var_dump($list);
+        $return = $list->find('six');
+        $this->assertEquals(
+            true,
+            is_object($return),
+            "find fix falied."
+        );
+        $return = $list->delete('four');
+        $this->assertEquals(
+            true,
+            $return,
+            "delete four falied."
+        );
+        $this->assertEquals(
+            5,
+            $list->getSize(),
+            "delete four falied."
+        );
+        $return = $list->fetch();
+        $this->assertEquals(
+            ['three','two', 'one', 'five', 'six'],
+            $return,
+            "fetch data error."
         );
     }
 }
