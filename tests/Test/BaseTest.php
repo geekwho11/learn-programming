@@ -30,6 +30,12 @@ class BaseTest extends \UnitTestCase
             '\Algorithm\Sort\MergeSort',
             '\Algorithm\Sort\HeapSort',
 
+            '\Algorithm\Search\Base',
+            '\Algorithm\Search\Binary',
+
+            '\Algorithm\String\Base',
+            '\Algorithm\String\Reverse',
+
             '\DataStructrue\Base',
             '\DataStructrue\DoublyLinkedList\Base',
 
@@ -46,6 +52,10 @@ class BaseTest extends \UnitTestCase
         }
     }
 
+    /**
+     * test lru algorithm
+     * @see https://leetcode.com/problems/lru-cache/
+     */
     public function testLRU()
     {
         $lru = \Algorithm\LRU\Base::instance();
