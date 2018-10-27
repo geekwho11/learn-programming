@@ -36,6 +36,9 @@ bash bin/cli.sh sort ms
 
 #堆排序
 bash bin/cli.sh sort hs
+
+#斐波数列
+bash bin/cli.sh math f
 ```
 
 ### 数据结构
