@@ -11,13 +11,13 @@ namespace DataStructrue\LinkedList;
 class DoublyLinkedList extends Base
 {
     private $_firstNode = null;
-    private $_lastNode = null;
+    private $_lastNode  = null;
     private $_totalNode = 0;
 
     public function insert($data, $position = 'before')
     {
         $position = $position != "before" && $position != "after"?"before":$position;
-        $node = new ListNode($data);
+        $node     = new ListNode($data);
         if ($this->_firstNode === null) {
             $this->_firstNode = $node;
             $this->_lastNode  = $node;
@@ -86,7 +86,7 @@ class DoublyLinkedList extends Base
 
     public function fetch($type = "asc")
     {
-        $deno = [];
+        $deno        = [];
         $currentNode = $type == "asc" ?$this->_firstNode:$this->_lastNode;
         while ($currentNode !== null) {
             $node[] = $currentNode->data;

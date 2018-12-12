@@ -30,7 +30,7 @@ class Reverse extends Base
     public static function utf8_strrev2($str)
     {
         $code = "UTF-8";
-        $len = mb_strlen($str, $code);
+        $len  = mb_strlen($str, $code);
         $_str = '';
         for ($i = $len - 1 ; $i >= 0; $i--) {
             $_str .= mb_substr($str, $i, 1, $code);

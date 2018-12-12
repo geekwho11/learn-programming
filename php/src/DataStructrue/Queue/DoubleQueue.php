@@ -11,7 +11,7 @@ namespace DataStructrue\Queue;
 class DoubleQueue extends Base
 {
     public $length=0;
-    public $array=[];
+    public $array =[];
     //队首出栈
     public function getFirst()
     {

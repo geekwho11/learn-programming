@@ -12,10 +12,10 @@ class SelectSort extends \Algorithm\Sort\Base
 {
     public static function run($num = 10)
     {
-        $begin = microtime(true);
+        $begin  = microtime(true);
         $random = self::getRandomData($num);
-        $data = self::sort($random);
-        $end  = microtime(true);
+        $data   = self::sort($random);
+        $end    = microtime(true);
         $time   = $end - $begin;
         echo "num $num sort cost time is $time s" . PHP_EOL;
         //self::echoData($random) . PHP_EOL;
@@ -24,9 +24,9 @@ class SelectSort extends \Algorithm\Sort\Base
 
     public static function sort(array $data)
     {
-        $tmp = 0 ;
+        $tmp      = 0 ;
         $rand_num = count($data);
-        for ($i = 0 ; $i < $rand_num -1 ; $i++) {
+        for ($i = 0 ; $i < $rand_num - 1 ; $i++) {
             //初始化$min为第一个元素
             $min = $i;
             for ($j = $i + 1 ; $j < $rand_num ; $j++) { //找到比min的还小的值,讲$min移到该序号
@@ -36,9 +36,9 @@ class SelectSort extends \Algorithm\Sort\Base
             }
             //,判断$min是否为最小,若不是,交换位置
             if ($min != $i) {
-                $tmp = $data[$min];
+                $tmp        = $data[$min];
                 $data[$min] = $data[$i];
-                $data[$i] = $tmp;
+                $data[$i]   = $tmp;
             }
         }
         return $data;

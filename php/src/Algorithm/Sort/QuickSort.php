@@ -12,10 +12,10 @@ class QuickSort extends \Algorithm\Sort\Base
 {
     public static function run($num = 10)
     {
-        $begin = microtime(true);
+        $begin  = microtime(true);
         $random = self::getRandomData($num);
-        $data = self::sort($random);
-        $end  = microtime(true);
+        $data   = self::sort($random);
+        $end    = microtime(true);
         $time   = $end - $begin;
         echo "num $num sort cost time is $time s" . PHP_EOL;
         //self::echoData($random) . PHP_EOL;
@@ -28,8 +28,8 @@ class QuickSort extends \Algorithm\Sort\Base
         if ($count <= 1) {
             return $data;
         }
-        $k = $data[0];
-        $left = array();
+        $k     = $data[0];
+        $left  = array();
         $right = array();
         for ($i = 1 ;$i < $count; $i++) {
             if ($k >= $data[$i]) {
@@ -38,8 +38,8 @@ class QuickSort extends \Algorithm\Sort\Base
                 $right[] = $data[$i];
             }
         }
-        $left = self::sort($left);
-        $right = self::sort($right);
+        $left   = self::sort($left);
+        $right  = self::sort($right);
         $result = array_merge($left, array($k), $right);
         return $result;
     }

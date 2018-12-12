@@ -12,19 +12,19 @@ class HeapSort extends \Algorithm\Sort\Base
 {
     public static function run($num = 10)
     {
-        $data = self::getRandomData($num);
-        $begin = microtime(true);
-        $data = self::maxHeapSort($data);
-        $end  = microtime(true);
+        $data   = self::getRandomData($num);
+        $begin  = microtime(true);
+        $data   = self::maxHeapSort($data);
+        $end    = microtime(true);
         $time   = $end - $begin;
         echo "maxheap num $num sort cost time is $time s" . PHP_EOL;
         //self::echoData($random) . PHP_EOL;
         //self::echoData($data) . PHP_EOL;
 
-        $data = self::getRandomData($num);
-        $begin = microtime(true);
-        $data = self::minHeapSort($data);
-        $end  = microtime(true);
+        $data   = self::getRandomData($num);
+        $begin  = microtime(true);
+        $data   = self::minHeapSort($data);
+        $end    = microtime(true);
         $time   = $end - $begin;
         echo "minheap num $num sort cost time is $time s" . PHP_EOL;
         //self::echoData($random) . PHP_EOL;
@@ -36,11 +36,11 @@ class HeapSort extends \Algorithm\Sort\Base
     {
         $count = count($data);
         //创建最大堆
-        for ($i = floor($count/2)-1; $i >=0 ; $i--) {
+        for ($i = floor($count / 2) - 1; $i >= 0 ; $i--) {
             self::heapAdjust($i, $count, $data, "max");
         }
         //进行排序
-        for ($i = $count-1 ; $i >=0 ; $i--) {
+        for ($i = $count - 1 ; $i >= 0 ; $i--) {
             self::swap($data[0], $data[$i]);
             self::heapAdjust(0, $i, $data, "max");
         }
@@ -51,11 +51,11 @@ class HeapSort extends \Algorithm\Sort\Base
     {
         $count = count($data);
         //创建最小堆
-        for ($i = floor($count/2)-1; $i >=0 ; $i--) {
+        for ($i = floor($count / 2) - 1; $i >= 0 ; $i--) {
             self::heapAdjust($i, $count, $data, "min");
         }
         //进行排序
-        for ($i = $count-1 ; $i >=0 ; $i--) {
+        for ($i = $count - 1 ; $i >= 0 ; $i--) {
             self::swap($data[0], $data[$i]);
             self::heapAdjust(0, $i, $data, "min");
         }

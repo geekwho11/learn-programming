@@ -12,10 +12,10 @@ class BubbleSort extends \Algorithm\Sort\Base
 {
     public static function run($num = 10)
     {
-        $begin = microtime(true);
+        $begin  = microtime(true);
         $random = self::getRandomData($num);
-        $data = self::sort($random);
-        $end  = microtime(true);
+        $data   = self::sort($random);
+        $end    = microtime(true);
         $time   = $end - $begin;
         echo "num $num sort cost time is $time s" . PHP_EOL;
         //self::echoData($random) . PHP_EOL;
@@ -24,16 +24,16 @@ class BubbleSort extends \Algorithm\Sort\Base
 
     public static function sort(array $data)
     {
-        $tmp = 0 ;
+        $tmp  = 0 ;
         $count=count($data);
         for ($i = $count ; $i > 0 ; $i--) {
             //倒序查找
-            for ($j = 0 ; $j < $i-1 ; $j++) {
+            for ($j = 0 ; $j < $i - 1 ; $j++) {
                 //找到比第一个数还小的值,交换位置
-                if ($data[$j] > $data[$j+1]) {
-                    $tmp = $data[$j+1];
-                    $data[$j+1] = $data[$j];
-                    $data[$j] = $tmp;
+                if ($data[$j] > $data[$j + 1]) {
+                    $tmp          = $data[$j + 1];
+                    $data[$j + 1] = $data[$j];
+                    $data[$j]     = $tmp;
                 }
             }
         }
@@ -42,7 +42,7 @@ class BubbleSort extends \Algorithm\Sort\Base
 
     public static function run1()
     {
-        $data = array();
+        $data     = array();
         $rand_num = 10;
         $rand_min = 1;
         $rand_max = 100;
@@ -55,11 +55,11 @@ class BubbleSort extends \Algorithm\Sort\Base
         //循环次数
         for ($i = 0 ; $i < $rand_num ; $i++) {
             //倒序循环
-            for ($j = $rand_num-1 ; $j > $i ; $j--) {
-                if ($data[$j] < $data[$j-1]) {
-                    $tmp = $data[$j];
-                    $data[$j] = $data[$j-1];
-                    $data[$j-1] = $tmp;
+            for ($j = $rand_num - 1 ; $j > $i ; $j--) {
+                if ($data[$j] < $data[$j - 1]) {
+                    $tmp          = $data[$j];
+                    $data[$j]     = $data[$j - 1];
+                    $data[$j - 1] = $tmp;
                 }
             }
         }

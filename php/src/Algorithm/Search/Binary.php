@@ -14,11 +14,11 @@ class Binary extends Base
     {
         $random = self::getRandomData($num);
         $random = \Algorithm\Sort\QuickSort::sort($random);
-        $findme = mt_rand(0, $num-1);
+        $findme = mt_rand(0, $num - 1);
         $findme = $random[$findme];
-        $begin = microtime(true);
-        $data = self::search($random, $findme);
-        $end  = microtime(true);
+        $begin  = microtime(true);
+        $data   = self::search($random, $findme);
+        $end    = microtime(true);
         $time   = $end - $begin;
         echo "num $num search $findme cost time is $time s" . PHP_EOL;
         //self::echoData($random) . PHP_EOL;
@@ -29,7 +29,7 @@ class Binary extends Base
         $start = 0;
         $end   = count($array);
         while ($start <= $end) {
-            $find = intval(($start+$end)/2);
+            $find = intval(($start + $end) / 2);
             if ($array[$find] == $e) {
                 return $find;
             }

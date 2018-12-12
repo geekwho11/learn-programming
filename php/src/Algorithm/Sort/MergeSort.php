@@ -16,9 +16,9 @@ class MergeSort extends \Algorithm\Sort\Base
         sort($data1);
         $data2 = self::getRandomData($num);
         sort($data2);
-        $begin = microtime(true);
-        $data = self::sort($data1, $data2);
-        $end  = microtime(true);
+        $begin  = microtime(true);
+        $data   = self::sort($data1, $data2);
+        $end    = microtime(true);
         $time   = $end - $begin;
         echo "num $num sort cost time is $time s" . PHP_EOL;
         //self::echoData($random) . PHP_EOL;
