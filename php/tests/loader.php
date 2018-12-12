@@ -8,7 +8,13 @@
  *　@see https://docs.phalconphp.com/zh/latest/reference/unit-testing.html
  */
 try {
-    require_once dirname(__DIR__) . '/app/bootstrap/test.php';
+    /**
+     * Register the autoloader of composer.
+     */
+    $vendorLoader = dirname(__DIR__) . '/vendor/autoload.php';
+    if (is_file($vendorLoader)) {
+        $loader = require_once $vendorLoader;
+    }
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

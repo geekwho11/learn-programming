@@ -1,11 +1,9 @@
 <?php
 
-namespace Test;
-
 /**
  * unit test
  */
-class BaseTest extends \UnitTestCase
+class BaseTest extends \PHPUnit\Framework\TestCase
 {
     public function testRun()
     {
@@ -42,9 +40,6 @@ class BaseTest extends \UnitTestCase
             '\DataStructrue\Queue\Base',
             '\DataStructrue\Queue\DoubleQueue',
 
-            '\Helper\Logger',
-            '\MainTask',
-            '\SortTask',
         ];
         foreach ($tests as $test) {
             $this->assertEquals(

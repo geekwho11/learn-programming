@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="./loader.php"
-         backupGlobals="false"
+<phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         verbose="true"
+         bootstrap="./loader.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false">
-    <testsuite name="Testsuite">
-        <directory>./</directory>
-    </testsuite>
+    <testsuites>
+        <testsuite name="PHP Unit Test Suite">
+            <directory suffix=".php">../tests/</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

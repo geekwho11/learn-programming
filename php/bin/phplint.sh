@@ -1,8 +1,8 @@
 #!/bin/bash
 # Program:
-#   php lint script fot gitlba ci
+#.   php lint script
 # History:
-# 2018.07.21 GeekWho first release.
+# 2018.09.17 geekwho first release.
 php=$(which "php")
 if [ -z $php ]; then
     echo '请先安装php'
@@ -12,11 +12,15 @@ root=$(cd "$(dirname "$0")";cd ..;pwd)
 cd $root
 ERRORS_BUFFER=""
 php_dirs=(
-  app/
   tests/
+  src/
+  bin/
 )
 for dir in ${php_dirs[@]}; do
-    for file in $(find "$dir" -name *.php); do
+    if [[ ! -d "$root/$dir" ]];then
+      continue
+    fi
+    for file in $(find "$dir" -name '*.php'); do
         if [[ "$file" == "" ]]; then
             echo "Can not found php file." && exit 0
         fi

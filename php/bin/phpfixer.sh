@@ -1,8 +1,8 @@
 #!/bin/bash
 # Program:
-#   use php-cs-fixer
+#   use php-cs-fixer2
 # History:
-# 2018.07.21 GeekWho first release.
+# 2018.09.17 geekwho first release.
 
 ### 自动修正 php 编码格式 ###
 bin=/usr/local/bin/php-cs-fixer2
@@ -16,24 +16,48 @@ if [ ! -f $bin ]; then
 fi
 
 root=$(cd "$(dirname "$0")"; cd ..; pwd)
+
+function fixer()
+{
+  ERRORS=$($bin fix --rules=-psr0,@PSR2,encoding,elseif,function_declaration,indentation_type,blank_line_after_namespace,method_argument_space --rules='{"binary_operator_spaces":{"align_double_arrow": true,"align_equals": true}}' $root/$1 2>&1 | grep ")")
+}
+
+#单个文件的格式化
+if [[ "$1" != "" ]]; then
+  fixer $1
+  if [ "$ERRORS" != "" ]; then
+      echo
+      echo "Found PHP Code Style errors: "
+      echo -e $ERRORS_BUFFER
+      echo
+      echo "PHP Code Style errors found. Fix code style and commit again."
+      exit 1
+  else
+      echo "No PHP Code Style errors found. Committed successfully."
+  fi
+  exit
+fi
+
+
 ERRORS_BUFFER=""
 # 需要检查的php程序目录
 php_dirs=(
-  app/bootstrap
-  app/business
-  app/config
-  app/models
-  app/tasks
-  app/bootstrap.php
-  tests/*.php
+  tests/
+  src/
+  bin/
 )
 
+cd $root
+
 for dir in ${php_dirs[@]}; do
-    for file in $(find "$dir" -name *.php); do
+    if [[ ! -d "$root/$dir" ]];then
+      continue
+    fi
+    for file in $(find "$dir" -name '*.php'); do
         if [[ "$file" == "" ]]; then
             echo "Can not found php file." && exit 0
         fi
-        ERRORS=$($bin fix --rules=-psr0,@PSR2,encoding,elseif,function_declaration,indentation_type,blank_line_after_namespace,method_argument_space $root/$file 2>&1 | grep ")")
+        fixer $file
         if [ "$ERRORS" != "" ]; then
             if [ "$ERRORS_BUFFER" != "" ]; then
                 ERRORS_BUFFER="$ERRORS_BUFFER\n$ERRORS"

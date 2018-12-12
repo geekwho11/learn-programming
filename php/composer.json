@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "dev",
     "repositories": [
         {
             "type": "composer",
@@ -8,15 +9,25 @@
             "packagist": false
         },
         {
+            "url": "git@gitlab.com:geekwho11/github/php.devtools.xbcme.git",
+            "type": "git"
+        },
+        {
             "url": "git@github.com:geekwho11/tests.git",
             "type": "git"
         }
     ],
+    "config": {
+        "preferred-install": "dist"
+    },
     "require": {
-        "phalcon/devtools": "^3.2",
-        "phalcon/incubator": "^3.2"
+        "php": ">= 7.2.7",
+        "geekwho/devtools": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.2"
+    },
+    "autoload": {
+         "psr-4": { "": "src/" }
     }
 }

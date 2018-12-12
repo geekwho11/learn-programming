@@ -1,6 +1,6 @@
 # see https://gitlab.com/help/ci/yaml/README.md#jobs
 # Select image
-image: geekwho/code:php
+image: my:php
 stages:
   - phplint
   - phpfixer
@@ -12,28 +12,18 @@ stages:
 phplint:
   stage: phplint
   script:
-  - bash bin/phplint.sh
-  only:
-  - master
-  - prelease
-  - dev
+  - bash php/bin/phplint.sh
 
 # php code style
 phpfixer:
   stage: phpfixer
   script:
-  - bash bin/phpfixer.sh
-  only:
-  - master
-  - prelease
-  - dev
+  - bash php/bin/phpfixer.sh
 
 # unit test
 test:
   stage: test
   script:
+  - cd php
+  - composer install
   - bash bin/test.sh
-  only:
-  - master
-  - prelease
-  - dev
