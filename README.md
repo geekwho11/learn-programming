@@ -1,13 +1,13 @@
 ## 学习编程的美
-学习常用算法，数据结构。
+记录学习极客时间的专栏、常用算法、数据结构的经历。
 
-### 环境搭建
-搭建PHP基础开发环境，请参考[GitHub地址](https://github.com/geekwho11/docker.xbc.me)。
+### 专栏
+
+#### 数据结构与算法之美
 
 ### 常用算法
 
 #### 排序
-
 1. [冒泡排序](./app/business/Algorithm/Sort/BubbleSort.php)
 2. [快速排序](./app/business/Algorithm/Sort/QuickSort.php)
 3. [选择排序](./app/business/Algorithm/Sort/SelectSort.php)
@@ -38,7 +38,7 @@ bash bin/cli.sh sort ms
 bash bin/cli.sh sort hs
 ```
 
-### 常见数据结构
+### 数据结构
 1. [双向链表](./app/business/DataStructrue/LinkedList/DoublyLinkedList.php)
 
 ### 单元测试
@@ -49,6 +49,9 @@ bash bin/test.sh
 #双向链表
 bash bin/test.sh Base testDoublyLinkedList
 ```
+
+### 环境搭建
+搭建PHP基础开发环境，请参考[GitHub地址](https://github.com/geekwho11/docker.xbc.me)
 
 ### 参考链接
 1. [神秘极客](https://xbc.me/)
