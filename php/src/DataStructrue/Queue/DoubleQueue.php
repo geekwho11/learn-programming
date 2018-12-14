@@ -3,7 +3,7 @@
  * @Author: GeekWho
  * @Date:   2018-07-15 21:42:32
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-07-22 17:53:31
+ * @Last Modified time: 2018-12-15 00:38:41
  */
 
 namespace DataStructrue\Queue;
@@ -45,7 +45,7 @@ class DoubleQueue extends Base
     {
         return $this->array;
     }
-    public static function run()
+    public function test()
     {
         $q = self::instance();
         $q->setLast('last');
