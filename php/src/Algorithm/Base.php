@@ -3,7 +3,7 @@
  * @Author: GeekWho
  * @Date:   2018-07-14 17:58:22
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-07-22 11:31:55
+ * @Last Modified time: 2018-12-14 18:07:24
  */
 
 namespace Algorithm;
@@ -29,6 +29,6 @@ class Base extends \Base
         } elseif (is_string($data)) {
             echo $data;
         }
-        echo "\n";
+        echo PHP_EOL;
     }
 }
