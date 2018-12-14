@@ -4,19 +4,19 @@
  * @Author: GeekWho
  * @Date:   2018-10-27 18:52:16
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-10-28 15:01:23
+ * @Last Modified time: 2018-12-15 00:27:54
  */
 namespace Algorithm\Math;
 
 class Fibonacci extends Base
 {
-    public static function run()
+    public function test()
     {
-        $times = 1 * 1000;
+        $times = 1 * 10;
 
         $echo  = false;
         $round = 11;
-        $f     =self::fibonacci();
+        $f     = $this->run();
         $t1    =microtime(true);
         for($i = 1;$i < $times;$i++){
             if($echo){
@@ -42,10 +42,10 @@ class Fibonacci extends Base
         $t1=microtime(true);
         for($i = 1;$i < $times;$i++){
             if($echo){
-                var_dump(self::fibonacci_2($i,0,1));
+                var_dump($this->run2($i,0,1));
                 continue;
             }
-            $max2 = self::fibonacci_2($i,0,1);
+            $max2 = $this->run2($i,0,1);
         }
         $t2 =microtime(true) - $t1;
         $t2 =round($t2,$round);
@@ -53,9 +53,9 @@ class Fibonacci extends Base
 
         $t1=microtime(true);
         if($echo){
-            var_dump(self::fibonacci_3($times));
+            var_dump($this->run3($times));
         }else{
-            $max3 = self::fibonacci_3($times);
+            $max3 = $this->run3($times);
         }
         $t2 =microtime(true) - $t1;
         $t2 =round($t2,$round);
@@ -66,7 +66,7 @@ class Fibonacci extends Base
     }
 
     // 闭包实现
-    public static function fibonacci() {
+    public function run() {
         list($a,$b) = [0,1];
         return function() use(&$a,&$b) {
             list($a,$b)=[$b,$a + $b];
@@ -75,11 +75,11 @@ class Fibonacci extends Base
     }
 
     // 递归实现
-    public static function fibonacci_1($i){
+    public function run1($i){
         if($i < 1) return 0;
         if($i == 1) return 1;
         if($i > 1){
-            return self::fibonacci_1($i - 2) + self::fibonacci_1($i - 1);
+            return $this->run1($i - 2) + $this->run1($i - 1);
         }
     }
 
@@ -92,15 +92,15 @@ class Fibonacci extends Base
      * @return
      * @see https://www.jianshu.com/p/6bdc8e3637f2
      */
-    public static function fibonacci_2($i, $a, $b){
+    public function run2($i, $a, $b){
         if($i == 0 ) return $a;
-        return self::fibonacci_2($i - 1, $b, $a + $b);
+        return $this->run2($i - 1, $b, $a + $b);
     }
 
     /**
      * 迭代
      */
-    public static function fibonacci_3($n){
+    public function run3($n){
         $a = $b = 1;
         while( $n > 2 ){
             $n -= 1;
