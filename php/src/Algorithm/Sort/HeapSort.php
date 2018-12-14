@@ -4,35 +4,30 @@
  * @Author: GeekWho
  * @Date:   2018-07-21 14:00:11
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-07-21 20:02:36
+ * @Last Modified time: 2018-12-14 23:16:37
  */
 namespace Algorithm\Sort;
 
 class HeapSort extends \Algorithm\Sort\Base
 {
-    public static function run($num = 10)
+    /**
+     * 最小堆
+     */
+    public function run($input)
     {
-        $data   = self::getRandomData($num);
-        $begin  = microtime(true);
-        $data   = self::maxHeapSort($data);
-        $end    = microtime(true);
-        $time   = $end - $begin;
-        echo "maxheap num $num sort cost time is $time s" . PHP_EOL;
-        //self::echoData($random) . PHP_EOL;
-        //self::echoData($data) . PHP_EOL;
+        return $this->minHeapSort($input);
+    }
 
-        $data   = self::getRandomData($num);
-        $begin  = microtime(true);
-        $data   = self::minHeapSort($data);
-        $end    = microtime(true);
-        $time   = $end - $begin;
-        echo "minheap num $num sort cost time is $time s" . PHP_EOL;
-        //self::echoData($random) . PHP_EOL;
-        //self::echoData($data) . PHP_EOL;
+    /**
+     * 最大堆
+     */
+    public function run1($input)
+    {
+        return $this->maxHeapSort($input);
     }
 
     //最大堆排序
-    public static function maxHeapSort($data)
+    public function maxHeapSort($data)
     {
         $count = count($data);
         //创建最大堆
@@ -47,20 +42,28 @@ class HeapSort extends \Algorithm\Sort\Base
         return $data;
     }
     //最小堆排序
-    public static function minHeapSort($data)
+    public function minHeapSort($data)
     {
+        $debug = false;
+        if($debug){var_dump(implode(',',$data));}
         $count = count($data);
         //创建最小堆
         for ($i = floor($count / 2) - 1; $i >= 0 ; $i--) {
             self::heapAdjust($i, $count, $data, "min");
         }
+        if($debug){var_dump(implode(',',$data));}
         //进行排序
         for ($i = $count - 1 ; $i >= 0 ; $i--) {
             self::swap($data[0], $data[$i]);
+            if($debug){var_dump('i ' . $i,implode(',',$data));}
             self::heapAdjust(0, $i, $data, "min");
         }
         return $data;
     }
+
+    /**
+     * 堆元素调整
+     */
     public static function heapAdjust($i, $j, &$data, $type = "max")
     {
         //根节点
@@ -91,10 +94,35 @@ class HeapSort extends \Algorithm\Sort\Base
             self::heapAdjust($root, $j, $data, $type);
         }
     }
+
+    /**
+     * 元素交换
+     */
     public static function swap(&$i, &$j)
     {
         $tmp = $i;
         $i   = $j;
         $j   = $tmp;
+    }
+
+    public function sort($num = 10)
+    {
+        $data   = self::getRandomData($num);
+        $begin  = microtime(true);
+        self::echoData($data) . PHP_EOL;
+        $data   = $this->maxHeapSort($data);
+        $end    = microtime(true);
+        $time   = $end - $begin;
+        echo "maxheap num $num sort cost time is $time s" . PHP_EOL;
+        self::echoData($data) . PHP_EOL;
+
+        $data   = self::getRandomData($num);
+        $begin  = microtime(true);
+        self::echoData($data) . PHP_EOL;
+        $data   = $this->minHeapSort($data);
+        $end    = microtime(true);
+        $time   = $end - $begin;
+        echo "minheap num $num sort cost time is $time s" . PHP_EOL;
+        self::echoData($data) . PHP_EOL;
     }
 }
