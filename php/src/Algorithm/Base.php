@@ -3,14 +3,14 @@
  * @Author: GeekWho
  * @Date:   2018-07-14 17:58:22
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-12-14 18:07:24
+ * @Last Modified time: 2018-12-14 21:44:32
  */
 
 namespace Algorithm;
 
 class Base extends \Base
 {
-    public static function getRandomData($rand_num = 10, $rand_max = 10000000, $rand_min = 1)
+    public static function getRandomData($rand_num = 10, $rand_max = 100, $rand_min = 1)
     {
         $data = array();
         //生成指定个数的随机数
