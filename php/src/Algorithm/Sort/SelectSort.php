@@ -4,25 +4,19 @@
  * @Author: GeekWho
  * @Date:   2018-07-21 14:00:11
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-07-21 16:11:33
+ * @Last Modified time: 2018-12-14 21:07:03
  */
 namespace Algorithm\Sort;
 
 class SelectSort extends \Algorithm\Sort\Base
 {
-    public static function run($num = 10)
-    {
-        $begin  = microtime(true);
-        $random = self::getRandomData($num);
-        $data   = self::sort($random);
-        $end    = microtime(true);
-        $time   = $end - $begin;
-        echo "num $num sort cost time is $time s" . PHP_EOL;
-        //self::echoData($random) . PHP_EOL;
-        //self::echoData($data) . PHP_EOL;
-    }
-
-    public static function sort(array $data)
+    /**
+     * 1. 外层循环
+     * 2. 内层循环，以第一个数为标准。
+     * 3. 找到比第一个还小的书，进行交换。
+     *
+     */
+    public function run(array $data)
     {
         $tmp      = 0 ;
         $rand_num = count($data);
@@ -42,5 +36,17 @@ class SelectSort extends \Algorithm\Sort\Base
             }
         }
         return $data;
+    }
+
+    public function sort($num = 10)
+    {
+        $begin  = microtime(true);
+        $random = self::getRandomData($num);
+        $data   = $this->sort($random);
+        $end    = microtime(true);
+        $time   = $end - $begin;
+        echo "num $num sort cost time is $time s" . PHP_EOL;
+        self::echoData($random) . PHP_EOL;
+        self::echoData($data) . PHP_EOL;
     }
 }
