@@ -1,0 +1,3 @@
+[submodule "micro-service/tars/tars-php-demo"]
+	path = micro-service/tars/tars-php-demo
+	url = git@github.com:geekwho11/tars-php-demo.git
