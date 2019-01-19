@@ -45,6 +45,7 @@ php_dirs=(
   tests/
   src/
   bin/
+  ../linux/
 )
 
 cd $root
