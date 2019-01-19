@@ -10,8 +10,8 @@ namespace Geekbang\DataStructrue\LinkedList;
 
 class SingleLinkedList extends Base
 {
-    public $head = null;
-    public $last = null;
+    public $head   = null;
+    public $last   = null;
     public $length = 0;
     /**
      * 插入元素
@@ -21,16 +21,16 @@ class SingleLinkedList extends Base
     public function insert($value)
     {
         if($this->head === null){
-            $list = new \DataStructrue\LinkedList\ListNode($value);
+            $list       = new \DataStructrue\LinkedList\ListNode($value);
             $this->head = $list;
             $this->last = $list;
             $this->length++;
             return $this->length;
         }
         if($this->last !== null){
-            $list = new \DataStructrue\LinkedList\ListNode($value);
-            $currentNode = $this->last;
-            $this->last  = $list;
+            $list              = new \DataStructrue\LinkedList\ListNode($value);
+            $currentNode       = $this->last;
+            $this->last        = $list;
             $currentNode->next = $list;
             $this->length++;
             return $this->length;

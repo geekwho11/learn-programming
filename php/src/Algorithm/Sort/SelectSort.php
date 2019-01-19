@@ -13,7 +13,7 @@ class SelectSort extends \Algorithm\Sort\Base
     /**
      * 1. 外层循环
      * 2. 内层循环，以第一个数为标准。
-     * 3. 找到比第一个还小的书，进行交换。
+     * 3. 找到比第一个还小的数，进行交换。
      *
      */
     public function run(array $data)
