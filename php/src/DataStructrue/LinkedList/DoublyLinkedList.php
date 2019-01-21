@@ -3,7 +3,7 @@
  * @Author: GeekWho
  * @Date:   2018-07-15 21:42:32
  * @Last Modified by:   GeekWho
- * @Last Modified time: 2018-07-22 22:50:27
+ * @Last Modified time: 2019-01-21 20:43:51
  */
 
 namespace DataStructrue\LinkedList;
@@ -86,7 +86,7 @@ class DoublyLinkedList extends Base
 
     public function fetch($type = "asc")
     {
-        $deno        = [];
+        $node        = [];
         $currentNode = $type == "asc" ?$this->_firstNode:$this->_lastNode;
         while ($currentNode !== null) {
             $node[] = $currentNode->data;
