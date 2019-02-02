@@ -1,6 +1,6 @@
 # see https://gitlab.com/help/ci/yaml/README.md#jobs
 # Select image
-image: my:php
+image: my:php_zts
 stages:
   - phplint
   - phpfixer
