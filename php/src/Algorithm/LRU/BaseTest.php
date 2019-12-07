@@ -19,12 +19,12 @@ class BaseTest extends \PHPUnit\Framework\TestCase
         $lru = \Algorithm\LRU\Base::instance();
         $this->assertEquals(
             true,
-            method_exists($lru , 'get'),
+            method_exists($lru, 'get'),
             "lru can not find get method."
         );
         $this->assertEquals(
             true,
-            method_exists($lru , 'set'),
+            method_exists($lru, 'set'),
             "lru can not find set method."
         );
 
@@ -41,7 +41,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(
             -1,
-            $lru->set('k','anything'),
+            $lru->set('k', 'anything'),
             "lru set key failed."
         );
     }

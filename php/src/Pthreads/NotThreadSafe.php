@@ -8,16 +8,19 @@
  */
 namespace Pthreads;
 
-class NotThreadSafe extends \Thread {
+class NotThreadSafe extends \Thread
+{
     /**
      * @see https://www.programcreek.com/2014/02/how-to-make-a-method-thread-safe-in-java/
      */
-    public function run() {
+    public function run()
+    {
         return $this->getCount();
     }
 
     private static $counter = 0;
-    public static function getCount() {
+    public static function getCount()
+    {
         return self::$counter++;
     }
 }

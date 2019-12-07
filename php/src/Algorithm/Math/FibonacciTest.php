@@ -24,7 +24,7 @@ class FibonacciTest extends \PHPUnit\Framework\TestCase
             $output = $case['output'];
             $f      = (new \Algorithm\Math\Fibonacci())->run();
             $return = [];
-            for($i = 1;$i < 11;$i++){
+            for ($i = 1;$i < 11;$i++) {
                 $return[] = $f();
             }
             $this->assertEquals(
@@ -32,27 +32,27 @@ class FibonacciTest extends \PHPUnit\Framework\TestCase
                 $return == $output,
                 sprintf(
                     "run test $key failed. return %s output  %s",
-                    var_export($return,true),
-                    var_export($output,true)
+                    var_export($return, true),
+                    var_export($output, true)
                 )
             );
 
             $return = [];
-            for($i = 1;$i < 11;$i++){
-                $return[] = (new \Algorithm\Math\Fibonacci())->run2($i,0,1);
+            for ($i = 1;$i < 11;$i++) {
+                $return[] = (new \Algorithm\Math\Fibonacci())->run2($i, 0, 1);
             }
             $this->assertEquals(
                 true,
                 $return == $output,
                 sprintf(
                     "run test $key failed. return %s output  %s",
-                    var_export($return,true),
-                    var_export($output,true)
+                    var_export($return, true),
+                    var_export($output, true)
                 )
             );
 
             $return = [];
-            for($i = 2;$i <= 11;$i++){
+            for ($i = 2;$i <= 11;$i++) {
                 $return[] = (new \Algorithm\Math\Fibonacci())->run3($i);
             }
             $this->assertEquals(
@@ -60,14 +60,14 @@ class FibonacciTest extends \PHPUnit\Framework\TestCase
                 $return == $output,
                 sprintf(
                     "run test $key failed. return %s output  %s",
-                    var_export($return,true),
-                    var_export($output,true)
+                    var_export($return, true),
+                    var_export($output, true)
                 )
             );
         }
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \Algorithm\Math\Fibonacci)->test();
         }
     }

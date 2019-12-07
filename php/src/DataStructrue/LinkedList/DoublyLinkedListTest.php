@@ -21,7 +21,7 @@ class DoublyLinkedListTest extends \PHPUnit\Framework\TestCase
             is_object($list),
             "DoublyLinkedList instance falied."
         );
-        $list->insert('one' , 'before');
+        $list->insert('one', 'before');
         $list->insert('two', 'before');
         $list->insert('three', 'before');
         $this->assertEquals(
@@ -37,7 +37,7 @@ class DoublyLinkedListTest extends \PHPUnit\Framework\TestCase
         );
         //var_dump($list);
 
-        $list->insert('four' , 'after');
+        $list->insert('four', 'after');
         $list->insert('five', 'after');
         $list->insert('six', 'after');
         $this->assertEquals(

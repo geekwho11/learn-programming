@@ -4,7 +4,7 @@
  * 1. 创建一个主进程和子进程。
  * 2. 子进程运行的函数是无限循环。
  * 3. 支持SIGTERM信号退出。
- * 
+ *
  * @Author: GeekWho
  * @Date:   2019-11-17
  * @Last Modified by:   GeekWho
@@ -69,7 +69,7 @@ class CreateChild
      */
     private function worker()
     {
-        while(true){
+        while (true) {
             echo "run every 1s". PHP_EOL;
             sleep(1);
         }
@@ -84,7 +84,7 @@ class CreateChild
         pcntl_async_signals(true);
 
         pcntl_signal(SIGTERM, [$this, 'signalHandler']);
-        pcntl_signal(SIGHUP,  [$this, 'signalHandler']);
+        pcntl_signal(SIGHUP, [$this, 'signalHandler']);
         pcntl_signal(SIGUSR1, [$this, 'signalHandler']);
     }
 

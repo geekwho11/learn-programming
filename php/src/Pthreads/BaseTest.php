@@ -9,6 +9,9 @@ class BaseTest extends \PHPUnit\Framework\TestCase
 {
     public function testRun()
     {
+        if (!class_exists('Thread')) {
+            return;
+        }
         $tests = [
             '\Pthreads\Base',
             '\Pthreads\My',
@@ -36,7 +39,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
             $return,
             "isRunning test failed."
         );
-        $my->synchronized(function($thread){
+        $my->synchronized(function ($thread) {
             $thread->done = true;
             $thread->notify();
         }, $my);
@@ -64,18 +67,19 @@ class BaseTest extends \PHPUnit\Framework\TestCase
         $t = microtime(true);
         $g = new WebRequest(sprintf("http://www.baidu.com/?q=%s", rand() * 10));
         /* starting synchronized */
-        if($g->start()){
+        if ($g->start()) {
             printf("Request took %f seconds to start ", microtime(true) - $t);
-            while($g->isRunning()){
+            while ($g->isRunning()) {
                 echo ".";
-                $g->synchronized(function() use($g) {
+                $g->synchronized(function () use ($g) {
                     $g->wait(100);
                 });
             }
-            if ($g->join()){
+            if ($g->join()) {
                 printf(" and %f seconds to finish receiving %d bytes\n", microtime(true) - $t, strlen($g->data));
-            } else printf(" and %f seconds to finish, request failed\n", microtime(true) - $t);
-
+            } else {
+                printf(" and %f seconds to finish, request failed\n", microtime(true) - $t);
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ class MergeSortTest extends \PHPUnit\Framework\TestCase
         }
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \Algorithm\Sort\MergeSort)->sort();
             /*
             //1000

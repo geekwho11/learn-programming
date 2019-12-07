@@ -38,7 +38,7 @@ class QuickSortTest extends \PHPUnit\Framework\TestCase
         }
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \Algorithm\Sort\QuickSort)->sort();
             /*
             //1000

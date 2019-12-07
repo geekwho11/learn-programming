@@ -45,17 +45,23 @@ class HeapSort extends \Algorithm\Sort\Base
     public function minHeapSort($data)
     {
         $debug = false;
-        if($debug){var_dump(implode(',',$data));}
+        if ($debug) {
+            var_dump(implode(',', $data));
+        }
         $count = count($data);
         //创建最小堆
         for ($i = floor($count / 2) - 1; $i >= 0 ; $i--) {
             self::heapAdjust($i, $count, $data, "min");
         }
-        if($debug){var_dump(implode(',',$data));}
+        if ($debug) {
+            var_dump(implode(',', $data));
+        }
         //进行排序
         for ($i = $count - 1 ; $i >= 0 ; $i--) {
             self::swap($data[0], $data[$i]);
-            if($debug){var_dump('i ' . $i,implode(',',$data));}
+            if ($debug) {
+                var_dump('i ' . $i, implode(',', $data));
+            }
             self::heapAdjust(0, $i, $data, "min");
         }
         return $data;

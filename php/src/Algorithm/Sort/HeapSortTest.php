@@ -52,7 +52,7 @@ class HeapSortTest extends \PHPUnit\Framework\TestCase
         }
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \Algorithm\Sort\HeapSort)->sort();
             /*
             //1000

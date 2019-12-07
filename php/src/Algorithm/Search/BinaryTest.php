@@ -40,7 +40,7 @@ class BinaryTest extends \PHPUnit\Framework\TestCase
         }
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \Algorithm\Search\Binary)->test();
         }
     }

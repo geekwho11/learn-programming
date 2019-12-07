@@ -38,7 +38,7 @@ class SelectSortTest extends \PHPUnit\Framework\TestCase
         }
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \Algorithm\Sort\SelectSort)->sort();
             /*
             //1000

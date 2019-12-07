@@ -57,7 +57,7 @@ class ReverseTest extends \PHPUnit\Framework\TestCase
         }
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \Algorithm\String\Reverse)->test();
         }
     }

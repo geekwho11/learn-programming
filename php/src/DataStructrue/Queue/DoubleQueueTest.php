@@ -12,7 +12,6 @@ class DoubleQueueTest extends \PHPUnit\Framework\TestCase
 {
     public function testRun()
     {
-
         $q    = \DataStructrue\Queue\DoubleQueue::instance();
         $key1 = "last";
         $q->setLast($key1);
@@ -22,7 +21,7 @@ class DoubleQueueTest extends \PHPUnit\Framework\TestCase
             $return == [$key1],
             sprintf(
                 "run test $key1 failed. return %s",
-                var_export($return,true)
+                var_export($return, true)
             )
         );
         $key2 = "first";
@@ -33,23 +32,23 @@ class DoubleQueueTest extends \PHPUnit\Framework\TestCase
             $return == [$key2,$key1],
             sprintf(
                 "run test $key2 failed. return %s",
-                var_export($return,true)
+                var_export($return, true)
             )
         );
         $key3 = "first0";
-        $q->setFirst( $key3);
+        $q->setFirst($key3);
         $return = $q->get();
         $this->assertEquals(
             true,
             $return == [$key3,$key2,$key1],
             sprintf(
                 "run test $key3 failed. return %s",
-                var_export($return,true)
+                var_export($return, true)
             )
         );
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \DataStructrue\Queue\DoubleQueue)->test();
         }
     }

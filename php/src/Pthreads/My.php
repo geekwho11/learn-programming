@@ -8,14 +8,17 @@
  */
 namespace Pthreads;
 
-class My extends \Thread {
+class My extends \Thread
+{
     /**
      * @see http://php.net/manual/zh/threaded.synchronized.php
      */
-    public function run() {
-        $this->synchronized(function($thread){
-            if (!$thread->done)
+    public function run()
+    {
+        $this->synchronized(function ($thread) {
+            if (!$thread->done) {
                 $thread->wait();
+            }
         }, $this);
     }
 }

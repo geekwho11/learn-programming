@@ -20,14 +20,14 @@ class SingleLinkedList extends Base
      */
     public function insert($value)
     {
-        if($this->head === null){
+        if ($this->head === null) {
             $list       = new \DataStructrue\LinkedList\ListNode($value);
             $this->head = $list;
             $this->last = $list;
             $this->length++;
             return $this->length;
         }
-        if($this->last !== null){
+        if ($this->last !== null) {
             $list              = new \DataStructrue\LinkedList\ListNode($value);
             $currentNode       = $this->last;
             $this->last        = $list;
@@ -64,7 +64,7 @@ class SingleLinkedList extends Base
         $head->next = null;
         // 保存上一节点
         $prenode = $head;
-        while($node !== null && --$this->length){
+        while ($node !== null && --$this->length) {
             // 当前节点的后一个节点
             $next = $node->next;
             // 反转操作
@@ -85,7 +85,7 @@ class SingleLinkedList extends Base
     {
         $data = [];
         $node = $this->head;
-        while($node !== null && $this->length--){
+        while ($node !== null && $this->length--) {
             $data[] = $node->data;
             $node   = $node->next;
         }

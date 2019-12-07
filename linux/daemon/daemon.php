@@ -154,7 +154,6 @@ class Deamon
                 break;
         }
     }
-
 }
 
 $deamon = new \Deamon();

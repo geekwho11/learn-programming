@@ -44,7 +44,7 @@ class BubbleSortTest extends \PHPUnit\Framework\TestCase
         }
 
         $debug = false;
-        if($debug){
+        if ($debug) {
             (new \Algorithm\Sort\BubbleSort)->sort();
             (new \Algorithm\Sort\BubbleSort)->sort1();
             /*

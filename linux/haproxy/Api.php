@@ -12,7 +12,7 @@ class Api
     {
         $req = isset($_SERVER['HTTP_HOST'])?$_SERVER['HTTP_HOST']:'--';
         echo sprintf(
-            "request HTTP_HOST %s real SERVER_PORT %s" . PHP_EOL ,
+            "request HTTP_HOST %s real SERVER_PORT %s" . PHP_EOL,
             $_SERVER['HTTP_HOST'],
             $_SERVER['SERVER_PORT']
         );

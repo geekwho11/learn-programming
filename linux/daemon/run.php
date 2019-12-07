@@ -47,10 +47,10 @@ class Daemon
 
         $this->logger(__FUNCTION__ . ' before run');
         $pid = pcntl_fork();
-        if($pid == -1){
+        if ($pid == -1) {
             die('fork failed' . PHP_EOL);
         }
-        if($pid){
+        if ($pid) {
             //退出父进程
             exit(0);
         }
@@ -60,7 +60,7 @@ class Daemon
         $session_id = posix_setsid();
         @posix_setegid(-1);
         @posix_seteuid(-1);
-        if($session_id == -1){
+        if ($session_id == -1) {
             die('session failed' . PHP_EOL);
         }
         $this->logger('posix_setsid after run');
@@ -77,7 +77,7 @@ class Daemon
 
         $this->logger('fclose before run');
 
-        try{
+        try {
             $fp = fopen($this->pid, 'w') or die("Can't create pid file");
             //把当前进程的id写入到文件中
             fwrite($fp, posix_getpid());
@@ -86,7 +86,7 @@ class Daemon
             fclose(STDIN);
             fclose(STDOUT);
             fclose(STDERR);
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             var_dump($e->getMessage());
         }
         /**
@@ -102,13 +102,15 @@ class Daemon
     /**
      * 环境检查函数
      */
-    public function before(){
+    public function before()
+    {
         extension_loaded('pcntl') or die('pcntl extension is not installed');
         extension_loaded('posix') or die('posix extension is not installed');
         php_sapi_name() === "cli" or die('only run cli');
     }
 
-    public function after(){
+    public function after()
+    {
         while (true) {
             file_put_contents($this->job, microtime(true) . ' job ' . PHP_EOL, FILE_APPEND);
             sleep(5);
@@ -124,4 +126,4 @@ class Daemon
     }
 }
 
-(New Daemon)->run();
+(new Daemon)->run();
