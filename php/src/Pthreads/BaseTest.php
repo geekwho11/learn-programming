@@ -7,10 +7,17 @@ namespace Pthreads;
 
 class BaseTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * 如果扩展Thread不存在则跳过测试用例
+     * 1. markTestSkipped 告诉phpunit直接跳过
+     * 2. markTestIncomplete 标记该测试用例尚未完成
+     *
+     * @return void
+     */
     public function testRun()
     {
         if (!class_exists('Thread')) {
-            return;
+            $this->markTestSkipped('This test was skipped because Thread class not found.');
         }
         $tests = [
             '\Pthreads\Base',
