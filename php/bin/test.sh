@@ -1,3 +1,4 @@
+#!/bin/bash
 # @Author: GeekWho
 # @Date:   2018-12-03 01:37:43
 # @Last Modified by:   GeekWho
@@ -17,4 +18,6 @@ if [ -z $phpunit ]; then
     exit
 fi
 
-$phpunit -c $DIR/tests/phpunit.xml "$DIR/src/"
+cd $DIR
+$phpunit -c tests/phpunit.xml src
+$phpunit -c tests/phpunit.xml tests

@@ -19,7 +19,7 @@ root=$(cd "$(dirname "$0")"; cd ..; pwd)
 
 function fixer()
 {
-  ERRORS=$($bin fix --rules=-psr0,@PSR2,encoding,elseif,function_declaration,indentation_type,blank_line_after_namespace,method_argument_space --rules='{"binary_operator_spaces":{"align_double_arrow": true,"align_equals": true}}' $root/$1 2>&1 | grep ")")
+  ERRORS=$($bin fix --config=$root/.php_cs $root/$1 2>&1 | grep ")")
 }
 
 #单个文件的格式化
