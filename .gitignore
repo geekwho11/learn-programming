@@ -2,3 +2,4 @@ php/vendor
 data
 .php_cs.cache
 .phalcon
+php/tests/.phpunit.result.cache

@@ -1,6 +1,20 @@
 <?php
 namespace DesignPattern\Singleton;
 
+/**
+ *  PHP 单例模式
+ * 保证一个类仅有一个实例，并且提供一个访问它的全局访问
+ * 单例模式的特点：
+ * 1. 一个类只有一个实例
+ * 2. 必须自己创建这个实例
+ * 3. 向其他类提供访问这个实例的函数
+ *
+ * @author GeekWho <geekwho@xbc.me>
+ * @link http://www.ibm.com/developerworks/cn/opensource/os-php-designptrns/
+ * @link http://www.riabook.cn/doc/designpattern/
+ * @link http://www.phppan.com/2010/06/php-design-pattern-6-singleton/
+ * @since 2014.9.5
+ */
 class Base
 {
     // 私有静态变量
@@ -60,11 +74,19 @@ class Base
     }
 
     /**
-     * 不允许序列化unserialize
+     * 不允许clone
      *
      * @return void
      */
     private function __clone()
     {
+    }
+
+    /**
+     * 可执行的方法
+     */
+    public function work()
+    {
+        return true;
     }
 }
