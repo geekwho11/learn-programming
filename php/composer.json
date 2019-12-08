@@ -8,7 +8,7 @@
             "packagist": false
         },
         {
-            "url": "git@gitlab.com:geekwho11/github/php.devtools.xbcme.git",
+            "url": "git@github.com:geekwho11/php-devtools.git",
             "type": "git"
         },
         {
