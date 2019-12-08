@@ -4,26 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7b2ccf22d7267dc5426d28bf6bbd458",
+    "content-hash": "01044ae07fd94241a6e6ffee532ccd0c",
     "packages": [
         {
-            "name": "geekwho/devtools",
+            "name": "geekwho/php-devtools",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@gitlab.com:geekwho11/github/php.devtools.xbcme.git",
-                "reference": "3d43527436037e9c0fd0d7fa0c6f474487e191ea"
+                "url": "git@github.com:geekwho11/php-devtools.git",
+                "reference": "a88efcaf7e6fcafc25bae9a2c423e79c1a492924"
             },
             "require": {
-                "php": ">= 7.2.7"
+                "php": ">= 7.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.2"
+                "phpunit/phpunit": "^8"
             },
             "type": "library",
             "scripts": {
                 "post-update-cmd": [
-                    "/usr/bin/env bash vendor/geewho/devtools/bin/install.sh"
+                    "/usr/bin/env bash vendor/geewho/php-devtools/bin/install.sh"
                 ]
             },
             "license": [
@@ -36,7 +36,7 @@
                 }
             ],
             "description": "PHP Dev Tools Library",
-            "time": "2018-12-03T06:10:35+00:00"
+            "time": "2019-12-08T09:46:02+00:00"
         }
     ],
     "packages-dev": [
@@ -1559,7 +1559,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "geekwho/devtools": 20
+        "geekwho/php-devtools": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
