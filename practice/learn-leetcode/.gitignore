@@ -1,0 +1,3 @@
+php/vendor
+php/.php_cs.cache
+.DS_Store
