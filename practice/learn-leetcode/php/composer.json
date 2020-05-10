@@ -1,0 +1,27 @@
+{
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "url": "git@gitlab.com:geekwho11/github/php.devtools.xbcme.git",
+            "type": "git"
+        },
+        {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        },
+        {
+            "packagist": false
+        }
+    ],
+    "config": {
+        "preferred-install": "dist"
+    },
+    "require": {
+        "php": ">= 7.2.7",
+        "geekwho/devtools": "dev-master",
+        "php-ds/php-ds": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.2"
+    }
+}

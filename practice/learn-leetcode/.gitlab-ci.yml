@@ -1,0 +1,28 @@
+# see https://gitlab.com/help/ci/yaml/README.md#jobs
+# see https://gitlab.com/help/ci/docker/using_docker_images.md#define-image-and-services-from-gitlab-ciyml
+# Select image
+#image: my:go
+#image: my:php
+stages:
+  - go
+  - php
+  - build
+  - test
+  - deploy
+
+#go
+go:
+  image: my:go
+  stage: go
+  script:
+  - bash go/bin/test.sh
+# php
+php:
+  image: my:php
+  stage: php
+  script:
+  - bash php/bin/phplint.sh
+  - bash php/bin/phpfixer.sh
+  - cd php
+  - composer install
+  - bash bin/test.sh
