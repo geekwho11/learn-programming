@@ -9,3 +9,8 @@
 ```
 sudo apt-get remove fonts-arphic-ukai fonts-arphic-uming
 ```
+将这两个软件包加入忽略
+```
+sudo apt-mark hold fonts-arphic-ukai
+sudo apt-mark hold fonts-arphic-uming
+```
