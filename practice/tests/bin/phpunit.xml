@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="./loader.php"
+         bootstrap="../loader.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -10,12 +10,12 @@
          stopOnFailure="false">
     <testsuites>
         <testsuite name="PHP Unit Test Suite">
-            <directory suffix=".php">../tests/</directory>
+            <directory suffix=".php">../cases</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">../tests/</directory>
+            <directory suffix=".php">../cases</directory>
         </whitelist>
     </filter>
     <logging>

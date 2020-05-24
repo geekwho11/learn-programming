@@ -15,14 +15,19 @@ try {
     if (!is_file($vendorLoader)){
         return;
     }
-    $loader = require_once $vendorLoader;
+    $loader = require $vendorLoader;
     $root = dirname(dirname($path));
     $classMaps = array(
         'Algorithm\\' => [
             $root . '/basic/Algorithm',
+        ],
+        'DataStructrue\\' => [
             $root . '/basic/DataStructrue',
+        ],
+        'DesignPattern\\' => [
             $root . '/methodology/DesignPattern/',
         ],
+        '' => [$root . '/basic/'],
     );
     foreach ($classMaps as $namespace => $path) {
         $loader->setPsr4($namespace, $path);

@@ -8,6 +8,9 @@
  */
 namespace Pthreads;
 
+if (!class_exists('Thread')) {
+    return;
+}
 class NotThreadSafe extends \Thread
 {
     /**
