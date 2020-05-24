@@ -1,14 +1,6 @@
 {
     "repositories": [
         {
-            "url": "git@github.com:geekwho11/php-devtools.git",
-            "type": "git"
-        },
-        {
-            "url": "git@github.com:geekwho11/tests.git",
-            "type": "git"
-        },
-        {
             "type": "composer",
             "url": "https://packagist.phpcomposer.com"
         },
@@ -20,8 +12,7 @@
         "preferred-install": "dist"
     },
     "require": {
-        "php": ">= 7.3",
-        "geekwho/php-devtools": "dev-master"
+        "php": ">= 7.4"
     },
     "require-dev": {
         "phpunit/phpunit": "^8"

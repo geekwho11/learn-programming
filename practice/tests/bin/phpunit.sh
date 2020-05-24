@@ -1,6 +1,6 @@
 #!/bin/bash
 # Program:
-#.   run test cases
+#.   run unit test
 # @Author: GeekWho
 # @Date:   2018-12-03 01:37:43
 # @Last Modified by:   GeekWho
