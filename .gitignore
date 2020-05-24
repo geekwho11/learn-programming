@@ -1,5 +1,5 @@
-php/vendor
+practice/tests/vendor
 data
 .php_cs.cache
 .phalcon
-php/tests/.phpunit.result.cache
+practice/tests/.phpunit.result.cache
