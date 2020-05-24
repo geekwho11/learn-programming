@@ -2,4 +2,4 @@ practice/tests/vendor
 data
 .php_cs.cache
 .phalcon
-practice/tests/.phpunit.result.cache
+practice/tests/bin/.phpunit.result.cache
