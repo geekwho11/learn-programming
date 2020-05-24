@@ -1,4 +1,4 @@
-name: CI
+name: run unit test
 
 on: [push]
 
@@ -9,17 +9,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-    - name: GitHub Action for PHPUnit
-      uses: MilesChou/composer-action/7.3@master
+    - uses: php-actions/composer@v1
       with:
-          args: --help
+          command: '-V'
     - name: composer install
-      run: cd php && composer install
+      run: cd ./practice/tests && composer install
     - name: run phpunit
-      run: ./bin/test.sh
+      run: chmod +x . -R && ./practice/tests/bin/phpunit.sh
