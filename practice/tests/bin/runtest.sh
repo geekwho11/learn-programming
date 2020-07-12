@@ -21,5 +21,4 @@ if [ -z $phpunit ]; then
 fi
 
 cd $DIR
-$phpunit -c tests/bin/phpunit.xml src
-$phpunit -c tests/bin/phpunit.xml tests
+$phpunit -c $DIR/bin/phpunit.xml $*

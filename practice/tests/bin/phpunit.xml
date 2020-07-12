@@ -9,13 +9,16 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="PHP Unit Test Suite">
+        <testsuite name="all_case">
             <directory suffix=".php">../cases</directory>
+        </testsuite>
+        <testsuite name="design_pattern_case">
+            <directory suffix=".php">../cases/DesignPattern</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">../cases</directory>
+            <directory suffix=".php">../cases/</directory>
         </whitelist>
     </filter>
     <logging>
