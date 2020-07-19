@@ -10,28 +10,10 @@ namespace DesignPattern\Singleton;
  * 3. 向其他类提供访问这个实例的函数
  *
  * @author GeekWho <geekwho@xbc.me>
- * @link http://www.ibm.com/developerworks/cn/opensource/os-php-designptrns/
- * @link http://www.riabook.cn/doc/designpattern/
- * @link http://www.phppan.com/2010/06/php-design-pattern-6-singleton/
  * @since 2014.9.5
  */
-class Base
+class BaseSingleton
 {
-    // 私有静态变量
-    private static $instance = null;
-
-    /**
-     * 单例模式，最简单的实现方式
-     */
-    public static function getInstance()
-    {
-        if (self::$instance === null) {
-            self::$instance = new self;
-        }
-
-        return self::$instance;
-    }
-
     /**
      *单例数组，支持多个子类实现单例模式
      * @var array
@@ -41,7 +23,7 @@ class Base
     /**
      * 获取单例实例.
      */
-    public static function instance()
+    public static function getInstance()
     {
         $class = get_called_class();
 

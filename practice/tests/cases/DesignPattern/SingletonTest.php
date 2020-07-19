@@ -7,7 +7,9 @@ class SingletonTest extends \PHPUnit\Framework\TestCase
     public function testClassExists()
     {
         $tests = [
-            '\DesignPattern\Singleton\Base',
+            '\DesignPattern\Singleton\SimpleSingleton',
+            '\DesignPattern\Singleton\BaseSingleton',
+            '\DesignPattern\Singleton\TraitSingleton',
         ];
         foreach ($tests as $test) {
             $this->assertEquals(
@@ -20,13 +22,26 @@ class SingletonTest extends \PHPUnit\Framework\TestCase
 
     public function testInstance()
     {
-        $expected = \DesignPattern\Singleton\Base::class;
-        // 获取单例
-        $actual = \DesignPattern\Singleton\Base::instance();
-        $this->assertInstanceOf($expected, $actual);
-        // 获取单例
-        $actual = \DesignPattern\Singleton\Base::getInstance();
-        $this->assertInstanceOf($expected, $actual);
+        $expected = \DesignPattern\Singleton\SimpleSingleton::class;
+        // 获取单例，实例化对象，执行work函数
+        $actualInstance = \DesignPattern\Singleton\SimpleSingleton::getInstance();
+        $this->assertInstanceOf($expected, $actualInstance);
+        $actual   = $actualInstance->work();
+        $this->assertTrue($actual);
+
+        $expected = \DesignPattern\Singleton\BaseSingleton::class;
+        // 获取单例，实例化对象，执行work函数
+        $actualInstance = \DesignPattern\Singleton\BaseSingleton::getInstance();
+        $this->assertInstanceOf($expected, $actualInstance);
+        $actual   = $actualInstance->work();
+        $this->assertTrue($actual);
+
+        $expected = \DesignPattern\Singleton\TraitSingleton::class;
+        // 获取单例，实例化对象，执行work函数
+        $actualInstance = \DesignPattern\Singleton\TraitSingleton::getInstance();
+        $this->assertInstanceOf($expected, $actualInstance);
+        $actual   = $actualInstance->work();
+        $this->assertTrue($actual);
     }
 
     /**
@@ -36,8 +51,8 @@ class SingletonTest extends \PHPUnit\Framework\TestCase
     public function testCloneError()
     {
         // 获取单例
-        $actual = \DesignPattern\Singleton\Base::instance();
-        $this->expectErrorMessage("Call to private DesignPattern\Singleton\Base::__clone() from context 'SingletonTest'");
+        $actual = \DesignPattern\Singleton\SimpleSingleton::getInstance();
+        $this->expectErrorMessage("Call to private DesignPattern\Singleton\SimpleSingleton::__clone() from context 'SingletonTest'");
         $clone = clone $actual;
     }
 
@@ -48,9 +63,9 @@ class SingletonTest extends \PHPUnit\Framework\TestCase
     public function testSerializeError()
     {
         // 获取单例
-        $actual = \DesignPattern\Singleton\Base::instance();
+        $actual = \DesignPattern\Singleton\SimpleSingleton::getInstance();
         $this->expectError();
-        $this->expectErrorMessage("Invalid callback DesignPattern\Singleton\Base::__sleep, cannot access private method DesignPattern\Singleton\Base::__sleep()");
+        $this->expectErrorMessage("Invalid callback DesignPattern\Singleton\SimpleSingleton::__sleep, cannot access private method DesignPattern\Singleton\SimpleSingleton::__sleep()");
         $serialize = serialize($actual);
     }
 
@@ -60,17 +75,11 @@ class SingletonTest extends \PHPUnit\Framework\TestCase
      */
     public function testUnSerializeError()
     {
-        $this->markTestSkipped('This test was skipped because test case imcomplete.');
-    }
-
-    /**
-     * 实例化对象，执行work函数
-     */
-    public function testSingleton()
-    {
         // 获取单例
-        $instance = \DesignPattern\Singleton\Base::instance();
-        $actual   = $instance->work();
-        $this->assertTrue($actual);
+        $actual = \DesignPattern\Singleton\SimpleSingleton::getInstance();
+        $serialize = 'O:39:"DesignPattern\Singleton\SimpleSingleton":0:{}';
+        $this->expectError();
+        $this->expectErrorMessage("Invalid callback DesignPattern\Singleton\SimpleSingleton::__wakeup, cannot access private method DesignPattern\Singleton\SimpleSingleton::__wakeup()");
+        $result = unserialize($serialize);
     }
 }
