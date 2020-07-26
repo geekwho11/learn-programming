@@ -10,15 +10,15 @@
          stopOnFailure="false">
     <testsuites>
         <testsuite name="all_case">
-            <directory suffix=".php">../cases</directory>
+            <directory suffix=".php">../unittest</directory>
         </testsuite>
         <testsuite name="design_pattern_case">
-            <directory suffix=".php">../cases/DesignPattern</directory>
+            <directory suffix=".php">../unittest/DesignPattern</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist>
-            <directory suffix=".php">../cases/</directory>
+            <directory suffix=".php">../unittest/</directory>
         </whitelist>
     </filter>
     <logging>
