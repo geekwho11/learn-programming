@@ -20,11 +20,11 @@ namespace DesignPattern\State;
  * @link http://www.phppan.com/2010/07/php-design-pattern-11-state/
  * @since 2014.9.9
  */
-class MyState extends \DesignPattern\Singleton\Base implements IState
+class MyState extends \DesignPattern\Singleton\BaseSingleton implements IState
 {
     public function handle(Context $context)
     {
         echo __CLASS__ . " handle was called" . PHP_EOL;
-        $context->setState(OtherState::instance());
+        $context->setState(OtherState::getInstance());
     }
 }

@@ -27,10 +27,10 @@ class StateTest extends \PHPUnit\Framework\TestCase
 DesignPattern\State\OtherState handle was called
 ';
         $this->expectOutputString($output);
-        $state   = \DesignPattern\State\MyState::instance();
+        $state   = \DesignPattern\State\MyState::getInstance();
         $context = new \DesignPattern\State\Context($state);
         $context->request();
-        $state   = \DesignPattern\State\OtherState::instance();
+        $state   = \DesignPattern\State\OtherState::getInstance();
         $context = new \DesignPattern\State\Context($state);
         $context->request();
     }
