@@ -42,6 +42,22 @@ class SingletonTest extends \PHPUnit\Framework\TestCase
         $this->assertInstanceOf($expected, $actualInstance);
         $actual   = $actualInstance->work();
         $this->assertTrue($actual);
+
+        $expected = \DesignPattern\Singleton\ThreadSafeSingleton::class;
+        // 获取单例，实例化对象，执行work函数
+        $actualInstance = \DesignPattern\Singleton\ThreadSafeSingleton::getInstanceByLock();
+        $this->assertInstanceOf($expected, $actualInstance);
+        $actual   = $actualInstance->work();
+        $this->assertTrue($actual);
+        if (!class_exists('Thread')) {
+            return;
+        }
+        $instanceWorkReturn = [];
+        for ($i = 0; $i < 50; $i++) {
+            $thread = new \DesignPattern\Singleton\WorkerThread();
+            $instanceWorkReturn[$i] = $thread->start();
+        }
+        $this->assertTrue(count($instanceWorkReturn) == 1);
     }
 
     /**
