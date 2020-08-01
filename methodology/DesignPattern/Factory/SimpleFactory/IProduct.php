@@ -1,5 +1,5 @@
 <?php
-namespace DesignPattern\Factory;
+namespace DesignPattern\Factory\SimpleFactory;
 
 /**
  * 产品操作接口

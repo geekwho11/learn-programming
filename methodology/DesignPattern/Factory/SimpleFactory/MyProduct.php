@@ -1,5 +1,5 @@
 <?php
-namespace DesignPattern\Factory;
+namespace DesignPattern\Factory\SimpleFactory;
 
 /**
  *  PHP 工厂模式
