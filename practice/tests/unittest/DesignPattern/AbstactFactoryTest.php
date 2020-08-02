@@ -7,11 +7,11 @@ class AbstactFactoryTest extends \PHPUnit\Framework\TestCase
     public function testClassExists()
     {
         $tests = [
-            '\DesignPattern\AbstractFactory\ObjectFactory',
-            '\DesignPattern\AbstractFactory\Button',
-            '\DesignPattern\AbstractFactory\Border',
-            '\DesignPattern\AbstractFactory\MacButton',
-            '\DesignPattern\AbstractFactory\MacBorder',
+            '\DesignPattern\AbstractFactory\SimpleAbstractFactory\ObjectFactory',
+            '\DesignPattern\AbstractFactory\SimpleAbstractFactory\Button',
+            '\DesignPattern\AbstractFactory\SimpleAbstractFactory\Border',
+            '\DesignPattern\AbstractFactory\SimpleAbstractFactory\MacButton',
+            '\DesignPattern\AbstractFactory\SimpleAbstractFactory\MacBorder',
         ];
         foreach ($tests as $test) {
             $this->assertEquals(
@@ -22,11 +22,18 @@ class AbstactFactoryTest extends \PHPUnit\Framework\TestCase
         }
     }
 
-    public function testAbstactFactory()
+    public function testSimpleAbstractFactory()
     {
-        $object = new \DesignPattern\AbstractFactory\MacFactory();
+        $object = new \DesignPattern\AbstractFactory\SimpleAbstractFactory\MacFactory();
         $this->expectOutputString('MacButtonMacBorder');
         $object->CreateButton();
         $object->CreateBorder();
+    }
+
+    public function testAbstractFactoryPattern()
+    {
+        $object = new \DesignPattern\AbstractFactory\AbstractFactoryPattern\AbstractFactoryPatternDemo();
+        $this->expectOutputString('Inside Rectangle::draw() method.Inside Square::draw() method.Inside Red::fill() method.Inside Green::fill() method.');
+        $object->run();
     }
 }
